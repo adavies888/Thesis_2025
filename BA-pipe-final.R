@@ -360,7 +360,7 @@ confusionMatrix(p, y_test)
 
 roc_obj <- roc(as.numeric(y_test), as.numeric(p))
 auc(roc_obj)
-plot(roc_obj, col="blue", lwd=2, main="ROC Curve")
+
 
 # Find the overlap between each dataset
 print("Intersect: boruta & Lasso")
@@ -430,5 +430,6 @@ annotation_plot_df
 # Extract the features into another df and save it
 bile_acid_reduced <- bile_acids %>%
   dplyr::select(c("Number", "Letter", all_of(overlap_features)))
+
 
 write.csv(bile_acid_reduced, "Bile_acid_reduced.csv")
